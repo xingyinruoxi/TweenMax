@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>demo</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        div{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        #con{
+            width:40px;
+            height: 40px;
+            background: skyblue;
+        }
+    </style>
 </head>
 <body>
-
+<div id="box"></div>
+<div id="con"></div>
+<script src="js/TweenMax.js"></script>
+<script>
+    var t=new TimelineMax();
+    t.to('#con',2,{
+        // x:400
+        bezier:function () {
+            return[
+                {x:0,y:10},
+                {x:200,y:200},
+                {x:400,y:10},
+                {x:600,y:200},
+            ]
+        }
+    });
+</script>
 </body>
 </html>
